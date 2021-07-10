@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './Header.css';
 
-export default class COMPONENT extends React.Component {
+
+export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.setState({});
@@ -9,9 +11,12 @@ export default class COMPONENT extends React.Component {
 
   render() {
     return (
-      <>
-      
-      </>
+      <div id="header">
+        <Link to="/">Lista</Link>
+        <Link to="/details">Details</Link>
+        <Link to="/party">Party</Link>
+        <Link to="/battle">Batalha</Link>
+      </div>
     );
   }
 }
