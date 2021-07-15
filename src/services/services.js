@@ -6,20 +6,22 @@ async function fetchApi(id) {
 }
 
 export default async function loadPokemons() {
-  const storageContent = localStorage.getItem("pokemons");
+
+  const storageContent = localStorage.getItem("pokemonApp");  
   if (storageContent){
     const pokemons = JSON.parse(storageContent);
+    console.log('Local Storage');
     return pokemons;
   }
+  
   let pokemons = [];
-  for (let i = 1; i <= 2; i++){
+  for (let i = 1; i <= 20; i++){
     const rawData = await fetchApi(i)
-    const { id, name, moves, sprites, types, stats } = rawData;
+    const { id, name, moves, types, stats } = rawData;
     const pokemon = {
       id,
       name,
       moves,
-      sprites,
       types,
       stats: {
         [stats[0]['stat']['name']]: stats[0]['base_stat'],
@@ -32,16 +34,9 @@ export default async function loadPokemons() {
     }
     pokemons = [...pokemons, pokemon];
   }
-  // const pokemon = await fetchApi(10)
-
+  const save = JSON.stringify(pokemons)
+  localStorage.setItem("pokemonApp", save);
+  
+  console.log('API');
   return pokemons;
-//   console.log('xablau');
-//   console.log(x);
 }
-
-
-
-// Store
-// localStorage.setItem("lastname", "Smith");
-// Retrieve
-// localStorage.getItem("lastname");
