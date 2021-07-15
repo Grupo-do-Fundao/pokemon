@@ -1,7 +1,8 @@
 import React from 'react';
 // import { Link, Route, Switch } from 'react-router-dom';
+// import { fetchPokemons } from '../services/api';
 
-export default class COMPONENT extends React.Component {
+export default class PokemonCard extends React.Component {
   constructor(props) {
     super(props);
     this.setState({});
@@ -10,7 +11,14 @@ export default class COMPONENT extends React.Component {
   render() {
     return (
       <div>
-        Card dos Pokemongos
+       <div>
+         <img src="" alt="Favorito" />
+         <img src="" alt="Selecione o Pokemon" />
+       </div>
+       <img src="" alt="" />
+       <p>#</p>
+       <p>Nome do pokemon</p>
+       <p>Type</p>
       </div>
     );
   }
