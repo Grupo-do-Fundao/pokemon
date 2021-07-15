@@ -9,15 +9,16 @@ export default class PokemonCard extends React.Component {
   }
 
   render() {
+    const { pokemon } = this.props;
     return (
       <div>
        <div>
          <img src="" alt="Favorito" />
          <img src="" alt="Selecione o Pokemon" />
        </div>
-       <img src="" alt="" />
-       <p>#</p>
-       <p>Nome do pokemon</p>
+       <img src="" alt="d" />
+       <p>#{pokemon.id}</p>
+       <p>#{pokemon.name}</p>
        <p>Type</p>
       </div>
     );
