@@ -1,0 +1,13 @@
+https://pokeapi.co/docs/v2#moves-section (documentacao)
+const move = https://pokeapi.co/api/v2/move/{moveName or moveId}
+move
+  .id
+  .type
+  .name
+  .accuracy
+  .power
+  .damage_class
+  .stat_changes
+  .target
+  .drain
+  .healing
