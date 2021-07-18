@@ -24,7 +24,7 @@ export default class List extends React.Component {
     const { pokemons } = this.state;
     return (
       <div>
-        <PokemonCard pokemon={pokemons[0]} />
+        {/* <PokemonCard pokemon={pokemons[0]} /> */}
       </div>
     );
   }
