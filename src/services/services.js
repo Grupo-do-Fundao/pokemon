@@ -8,7 +8,6 @@ async function fetchApi(id) {
 function loadLocalStorage() {
   const storageContent = localStorage.getItem("pokemonApp");  
   if (storageContent !== null) {
-    console.log('LOCAL STORAGE');
     const pokemons = JSON.parse(storageContent);
     return pokemons;
   }
@@ -61,6 +60,5 @@ export default async function loadPokemons() {
   if (pokemons) return pokemons;
   pokemons = await fetchAllPokemons(4);
   saveInLocalStorage(pokemons);
-  console.log('API');
   return pokemons;
 }

@@ -7,6 +7,7 @@ export default class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       pokemons: [],
     }
   }
@@ -15,16 +16,21 @@ export default class List extends React.Component {
     loadPokemons()
       .then((pokemons) => {
         this.setState({
+          loading: false,
           pokemons,
         })
       });
   }
 
   render() {
-    const { pokemons } = this.state;
+    const { pokemons, loading } = this.state;
     return (
       <div>
-        {/* <PokemonCard pokemon={pokemons[0]} /> */}
+        {
+          loading ?
+          <h1>Loading</h1>:
+          <PokemonCard pokemon={pokemons[0]} />
+        }
       </div>
     );
   }
