@@ -49,6 +49,7 @@ async function fetchAllPokemons(num) {
 function saveInLocalStorage(pokemons) {
   if (typeof pokemons === 'object' && pokemons.length > 0 && typeof pokemons[0] === 'object' && pokemons[0].party === false) {
     const save = JSON.stringify(pokemons)
+    console.log(save);
     localStorage.setItem("pokemonApp", save);
   } else {
     throw new Error('POKEMON APP: ERRO AO SALVAR NO LOCAL STORAGE');

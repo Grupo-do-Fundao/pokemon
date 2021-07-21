@@ -9,7 +9,9 @@ export default class List extends React.Component {
     this.state = {
       loading: true,
       pokemons: [],
+      filteredPokemons: [],
     }
+    this.thisStateSync = this.thisStateSync.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +24,15 @@ export default class List extends React.Component {
       });
   }
 
+  thisStateSync(pokemon) {
+    const { id } = pokemon;
+    let { pokemons } = this.state;
+    pokemons[id-1] = pokemon;
+    this.setState({
+      pokemons,
+    });
+  }
+
   render() {
     const { pokemons, loading } = this.state;
     return (
@@ -29,9 +40,15 @@ export default class List extends React.Component {
         {
           loading ?
           <h1>Loading</h1>:
-          <PokemonCard pokemon={pokemons[0]} />
+          pokemons.map((pokemon, i) => (
+            <PokemonCard
+              pokemon={pokemons[i]}
+              parentStateSync={this.thisStateSync}
+            />
+          ))
         }
       </div>
     );
   }
 }
+
